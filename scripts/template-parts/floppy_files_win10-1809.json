@@ -1,0 +1,36 @@
+{
+  "builders": [
+    {
+      "type": "hyperv-iso",
+      "floppy_files": [
+        "./answer_files/10-1809/autounattend.xml",
+        "./floppy/eula/win10/eula.txt",
+        "./floppy/bginfo/win10/bgconfig.bgi"
+      ]
+    },
+    {
+      "type": "virtualbox-iso",
+      "floppy_files": [
+        "./answer_files/10-1809/autounattend.xml",
+        "./floppy/eula/win10/eula.txt",
+        "./floppy/bginfo/win10/bgconfig.bgi"
+      ]
+    },
+    {
+      "type": "vmware-iso",
+      "floppy_files": [
+        "./answer_files/10-1809/autounattend.xml",
+        "./floppy/eula/win10/eula.txt",
+        "./floppy/bginfo/win10/bgconfig.bgi"
+      ]
+    },
+    {
+      "type": "parallels-iso",
+      "floppy_files": [
+        "./answer_files/10-1809/autounattend.xml",
+        "./floppy/eula/win10/eula.txt",
+        "./floppy/bginfo/win10/bgconfig.bgi"
+      ]
+    }
+  ]
+}

@@ -7,8 +7,7 @@
       "scripts": [
         "./provisioners/vm-guest-tools.bat",
         "./provisioners/compact.bat",
-        "./provisioners/restore-uac.bat",
-        "./provisioners/disable-autologon.bat"        
+        "./provisioners/restore-uac.bat"                
       ]
     }
   ]

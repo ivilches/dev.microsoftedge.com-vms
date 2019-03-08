@@ -31,7 +31,21 @@
                 <AcceptEula>true</AcceptEula>
                 <FullName>IEUser Administrator</FullName>
                 <Organization>Microsoft</Organization>
+                <!--
+                    NOTE: If you are re-configuring this for use of a retail key
+                    and using a retail ISO, you need to adjust the <ProductKey> block
+                    below to look like this:
+
+                    <ProductKey>
+                        <Key>33PXH-7Y6KF-2VJC9-XBBR8-HVTHH</Key>
+                        <WillShowUI>Never</WillShowUI>
+                    </ProductKey>
+
+                    Notice the addition of the `<Key>` element.
+                -->
+                <!-- Product Key from http://technet.microsoft.com/en-us/library/jj612867.aspx -->
                 <ProductKey>
+                   
                     <WillShowUI>Never</WillShowUI>
                 </ProductKey>
             </UserData>
@@ -197,4 +211,5 @@
             <SkipAutoActivation>true</SkipAutoActivation>
         </component>
     </settings>
+    <cpi:offlineImage cpi:source="wim:c:/code/microsoft.modernie/templates/iso/10240.16384.150709-1700.th1_cliententerpriseeval_oemret_x64fre_en-us/sources/install.wim#Windows 10 Enterprise Evaluation" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>

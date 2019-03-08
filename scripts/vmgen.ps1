@@ -291,7 +291,7 @@ function Compress-SingleAndMultipart ($zipFolder, $zipName, $source) {
 
     if($TestMode -eq $False){
         LogWrite "Removing output files..."
-        Remove-Item $source -Recurse -Force  
+        #Remove-Item $source -Recurse -Force  
     }
 }
 
@@ -422,6 +422,15 @@ function Start-BuildPackerTemplates {
     }
 }
 
+function Start-UnattendIso {
+
+    $startTime = Get-Date
+    LogWrite "Generating unattend ISO..."
+
+    Invoke-Expression "$global:Path\make_unattend_iso.ps1"
+    LogWrite "ISO generated."
+}
+
 function Start-GenerationProcess {
 
     LogWrite "vmgen process started."
@@ -483,7 +492,7 @@ function Start-GenerationProcess {
                 if ($item.Retried -eq $False) {                                       
                     LogWrite "Order retry for $software $windows $browser. Force restart before initiating process." 
                     $lock | ConvertTo-Json | Out-File "$global:Path\vmgen.json.lock"                   
-                    Restart-System
+                    # Restart-System
                 }                                                                                
             }
 
@@ -628,8 +637,9 @@ If ($Download -eq $True) {
     Download-ISOs
 }
 
-if($Continue -eq $False ){    
+if($Continue -eq $False ){
     Start-BuildPackerTemplates
+    Start-UnattendIso    
     Update-Mac
 }
 
@@ -641,5 +651,5 @@ If ($GenerateJSON -eq $True -or $Build -eq $True) {
     Generate-SofwareListJson
     Prepare-SofwareListJsonToBeNotified
     Send-NotificationEmail
-    Remove-OutputFiles
+    # Remove-OutputFiles
 }
